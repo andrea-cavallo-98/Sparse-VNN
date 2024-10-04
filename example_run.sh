@@ -1,0 +1,4 @@
+python main_vnn_brain.py --dimNodeSignals 1,32,32,32,32,32 --dimLayersMLP 32,16,1 --sparse_tensor false --cov_type ACV --dset epilepsy --nEpochs 200 --lr 0.001 --batchSize 100
+python main_vnn_brain.py --dimNodeSignals 1,64 --dimLayersMLP 64,1 --sparse_tensor false --cov_type ACV --dset cni --nEpochs 50 --lr 0.015 --batchSize 50
+python main_vnn_har.py --dimNodeSignals 1,32,32 --dimLayersMLP 32,16,1 --sparse_tensor false --cov_type ACV --dset mhealth --nEpochs 200 --lr 0.015 --batchSize 3162 
+python main_vnn_har.py --dimNodeSignals 1,128,64 --dimLayersMLP 64,16,1 --sparse_tensor false --cov_type ACV --dset realdisp --nEpochs 500 --batchSize 5831 --lr 0.001
