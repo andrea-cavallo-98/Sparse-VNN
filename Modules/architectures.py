@@ -277,28 +277,8 @@ class SelectionGNN(nn.Module):
         #\\\ Final aggregation layer \\\
         fc = []
         if len(self.dimLayersMLP) > 0: 
-            # The first layer has to connect whatever was left of the graph
-            # signal, flattened.
-            # dimInputMLP = self.N[-1] * self.F[-1]
-            # f1 = nn.Linear(dimInputMLP, self.N[0], bias = False) 
-            # weights = torch.ones(1,dimInputMLP)
-            # weights = weights / (weights.numel() / self.N[0]) # TODO ANDREA: maybe give a second look at this
-            # f1.weight = nn.Parameter(weights , requires_grad=False)
-            # for param in f1.parameters():
-            #          param.requires_grad = False
-            # fc.append(f1)
-            
-            # The last linear layer cannot be followed by nonlinearity, because
-            # usually, this nonlinearity depends on the loss function (for
-            # instance, if we have a classification problem, this nonlinearity
-            # is already handled by the cross entropy loss or we add a softmax.)
-            # The last linear layer cannot be followed by nonlinearity, because
-            # usually, this nonlinearity depends on the loss function (for
-            # instance, if we have a classification problem, this nonlinearity
-            # is already handled by the cross entropy loss or we add a softmax.)
 
             for l in range(len(dimLayersMLP)-1):
-                # fc.append(self.sigma())
                 # And add the linear layer
                 fc.append(nn.Linear(dimLayersMLP[l], dimLayersMLP[l+1],
                                     bias = self.bias))
